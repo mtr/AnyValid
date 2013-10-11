@@ -29,30 +29,39 @@ Examples
 ========
 Simple argument matching:
 ```python
+>>>
+>>> from mock import Mock
 >>> from any_valid import AnyValid, Int, String
->>> mock = Mock(return_value=None)
->>> mock(8, bar=0)
->>> mock.assert_called_with(AnyValid(String(min_lenght=3)), bar=AnyValid(Int(min=2)))
->>> False
->>> mock('fo', bar=1)
->>> mock.assert_called_with(AnyValid(String(min_lenght=3)), bar=AnyValid(Int(min=2)))
->>> False
->>> mock('foo', bar=2)
->>> mock.assert_called_with(AnyValid(String(min_lenght=3)), bar=AnyValid(Int(min=2)))
->>> True
+>>>
+>>> def check_call(foo, bar):
+...     try:
+...         mock = Mock(return_value=None)
+...         mock(foo, bar=bar)
+...         mock.assert_called_once_with(AnyValid(String(min_lenght=3)), 
+...                                      bar=AnyValid(Int(min=2)))
+...     except AssertionError:
+...         return False
+...     return True
+... 
+>>> check_call('fo', 1)
+False
+>>> check_call(8, 0)
+False
+>>> check_call('foo', 2)
+True
 ```
 
 Matching a loosely defined dict argument:
 ```python
 >>> from any_valid import AnyValid, Number, OneOf
 >>> valid_input = {
-        'core_temperature': Number(min=35, max=41.5),
-        'protocol': OneOf(['https', 'http']),
-        }
+...     'core_temperature': AnyValid(Number(min=35, max=41.5)),
+...     'protocol': AnyValid(OneOf(['https', 'http'])),
+...     }
 >>> mock = Mock(return_value=None)
->>> mock({'core_temperature': 36.8, protocol: 'https'})
+>>> mock({'core_temperature': 36.8, 'protocol': 'https'})
 >>> mock.assert_called_with(valid_input)
->>> True
+>>>
 ```
 
 
