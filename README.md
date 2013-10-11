@@ -1,6 +1,6 @@
 Any Valid
 =========
-The AnyValid class is just a thin wrapper class to be used with, for example, [formencode.validators](http://www.formencode.org/en/latest/modules/validators.html#module-formencode.validators), that lets you partially specify what kind of objects it should match.  To see the usefulness of this, it might be easier to first have a look at mock's ANY object ([from unittest.mock's documentation](http://docs.python.org/3/library/unittest.mock.html#any)):
+The AnyValid class is a wrapper class to be used with, for example, [formencode.validators](http://www.formencode.org/en/latest/modules/validators.html#module-formencode.validators), that lets you partially specify what kind of objects it should match.  To see the usefulness of this, it might be easier to first have a look at mock's ANY object ([from unittest.mock's documentation](http://docs.python.org/3/library/unittest.mock.html#any)):
 
 > Sometimes you may need to make assertions about some of the arguments in a call to mock, but either not care about some of the arguments or want to pull them individually out of call_args and make more complex assertions on them.
 
