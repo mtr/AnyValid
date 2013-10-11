@@ -6,7 +6,7 @@ setup(
     version='1.0.0',
     author='Martin Thorsen Ranang',
     author_email='mtr@ranang.org',
-    packages=['any_valid', 'any_valid.test'],
+    packages=['any_valid', 'test'],
     scripts=[],
     url='http://pypi.python.org/pypi/AnyValid/',
     license='LICENSE.txt',
