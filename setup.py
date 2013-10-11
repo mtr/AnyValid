@@ -9,8 +9,7 @@ setup(
     packages=['any_valid', 'test'],
     scripts=[],
     url='https://github.com/mtr/AnyValid',
-    license='LICENSE',
-    description='Useful towel-related stuff.',
+    description='Library that eases partial matching of objects.',
     long_description=open('README.md').read(),
     install_requires=[
         "formencode >= 1.2.0",
