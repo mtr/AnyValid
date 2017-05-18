@@ -30,7 +30,7 @@ def test_one_of():
     for items, sub_tests in [
         (['http', 'https'],
          [('ftp', False), ('http', True), ('https', True), ('file', False)]),
-        (range(3),
+        (xrange(3),
          [(0, True), (1, True), (2, True), (3, False), ('2', False)]),
     ]:
         valid_input = AnyValid(OneOf(items))
